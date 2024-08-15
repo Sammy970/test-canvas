@@ -10,6 +10,8 @@ export default async function generateImage(req, res) {
   const ly = undefined;
   const lfo = "top_left";
 
+  GlobalFonts.registerFromPath("../Roboto-Italic.ttf");
+
   console.log(GlobalFonts.families);
 
   // const processedImageBuffer = await image.toBuffer();
@@ -37,7 +39,7 @@ export default async function generateImage(req, res) {
   ctx.drawImage(imageLoaded, 0, 0);
 
   // Set the font and color for the text
-  ctx.font = "120px Comic Sans MS"; // Font size and family
+  ctx.font = "120px"; // Font size and family
   ctx.fillStyle = cl ? cl : "white"; // Text color
 
   // Function to wrap text
