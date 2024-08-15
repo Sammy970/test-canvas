@@ -35,6 +35,8 @@ export default async function generateImage(req, res) {
     text = i;
   }
 
+  console.log("text", text);
+
   // Draw the image onto the canvas
   ctx.drawImage(imageLoaded, 0, 0);
 
@@ -166,11 +168,11 @@ export default async function generateImage(req, res) {
     ctx.fillText(line, posX, posY + index * textHeight); // Adjust for line height
   });
 
-  ctx.fillStyle = "red";
-  ctx.fillRect(posX - 5, posY - 5, 10, 10); // small red square at the text start position
+  // ctx.fillStyle = "red";
+  // ctx.fillRect(posX - 5, posY - 5, 10, 10); // small red square at the text start position
 
-  ctx.fillStyle = "black"; // Ensure text is visible
-  ctx.fillText("Hello", 50, 50); // Test with hardcoded text
+  // ctx.fillStyle = "black"; // Ensure text is visible
+  // ctx.fillText("Hello", 50, 50); // Test with hardcoded text
 
   const buffer = canvas.toBuffer("image/png");
   res.setHeader("Content-Type", "image/png");
