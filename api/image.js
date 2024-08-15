@@ -10,7 +10,10 @@ export default async function generateImage(req, res) {
   const ly = undefined;
   const lfo = "top_left";
 
-  GlobalFonts.registerFromPath("../Roboto-Italic.ttf", "Roboto");
+  GlobalFonts.registerFromPath(
+    "https://github.com/Sammy970/test-canvas/raw/main/Roboto-Italic.ttf",
+    "Roboto"
+  );
 
   console.log(GlobalFonts.families);
 
