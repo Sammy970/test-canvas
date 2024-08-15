@@ -35,7 +35,7 @@ export default async function generateImage(req, res) {
   ctx.drawImage(imageLoaded, 0, 0);
 
   // Set the font and color for the text
-  ctx.font = `${fs ? fs : 40}px Arial`; // Font size and family
+  ctx.font = `${fs ? fs : 40}px`; // Font size and family
   ctx.fillStyle = cl ? cl : "white"; // Text color
 
   // Function to wrap text
@@ -161,6 +161,9 @@ export default async function generateImage(req, res) {
   lines.forEach((line, index) => {
     ctx.fillText(line, posX, posY + index * textHeight); // Adjust for line height
   });
+
+  ctx.fillStyle = "red";
+  ctx.fillRect(posX - 5, posY - 5, 10, 10); // small red square at the text start position
 
   const buffer = canvas.toBuffer("image/png");
   res.setHeader("Content-Type", "image/png");
