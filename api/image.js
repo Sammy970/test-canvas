@@ -3,6 +3,9 @@
 import { Canvas } from "@napi-rs/canvas";
 
 export default function generateImage(req, res) {
+  console.log("Generating image");
+  console.log("Request URL: ", req.url);
+  console.log(req);
   const WIDTH = 800;
   const HEIGHT = 400;
   const canvas = new Canvas(WIDTH, HEIGHT);
