@@ -35,7 +35,7 @@ export default async function generateImage(req, res) {
   ctx.drawImage(imageLoaded, 0, 0);
 
   // Set the font and color for the text
-  ctx.font = `${fs ? fs : 40}px`; // Font size and family
+  ctx.font = "120px"; // Font size and family
   ctx.fillStyle = cl ? cl : "white"; // Text color
 
   // Function to wrap text
@@ -164,6 +164,9 @@ export default async function generateImage(req, res) {
 
   ctx.fillStyle = "red";
   ctx.fillRect(posX - 5, posY - 5, 10, 10); // small red square at the text start position
+
+  ctx.fillStyle = "black"; // Ensure text is visible
+  ctx.fillText("Hello", 50, 50); // Test with hardcoded text
 
   const buffer = canvas.toBuffer("image/png");
   res.setHeader("Content-Type", "image/png");
